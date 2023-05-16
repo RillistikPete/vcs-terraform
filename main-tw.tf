@@ -1,5 +1,11 @@
 terraform {
-
+	backend "remote" {
+		hostname = "app.terraform.io"
+		organization = "kucas23"
+		workspaces {
+			name = "vcs-terraform"
+		}
+	}
 }
 
 provider "aws" {
@@ -7,7 +13,8 @@ provider "aws" {
 }
 
 module "apache-Guy" {
-	source = ".//terraform-aws-apache-module"
+	source  = "RillistikPete/moduleApache/aws"
+	version = "1.0.0"
 	vpc_id = var.vpc_id
 	my_id_with_cidr = var.my_id_with_cidr
 	public_key = var.public_key
