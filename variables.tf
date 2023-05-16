@@ -20,3 +20,10 @@ variable "server_name" {
 	type = string
 	default = "Apache pk Server"
 }
+
+
+variable "buckit" {
+	type = string
+	default = "7573333333333"
+}
+
