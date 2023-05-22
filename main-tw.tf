@@ -25,3 +25,4 @@ module "apache-Guy" {
 output "public_ip" {
 	value = module.apache-Guy.public_ip
 }
+
