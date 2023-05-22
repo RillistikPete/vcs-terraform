@@ -24,3 +24,12 @@ violations = length(violatingEC2Instances["messages"])
 main = rule {
   violations is 0
 }
+
+
+#didnt work, so we tried this in video:
+
+#instance_type_allowed = rule {
+#	all ec2_instances as _, instance {
+#		instance.change.after.instance_type in allowed_types
+#	}
+#}
