@@ -12,6 +12,10 @@ provider "aws" {
      region = "us-east-1"
 }
 
+resource "aws_s3_bucket" "buckit" {
+	bucket = "vcs-${uuid()}"
+}
+
 module "apache-Guy" {
 	source  = "RillistikPete/moduleApache/aws"
 	version = "1.0.0"
