@@ -1,0 +1,63 @@
+terraform_version = "1.4.6"
+
+outputs = {}
+
+resources = {
+	"module.apache-Guy.aws_vpc.pkVpc": {
+		"address":        "module.apache-Guy.aws_vpc.pkVpc",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "module.apache-Guy",
+		"name":           "pkVpc",
+		"provider_name":  "registry.terraform.io/hashicorp/aws",
+		"tainted":        false,
+		"type":           "aws_vpc",
+		"values": {
+			"arn":        "arn:aws:ec2:us-east-1:035945648876:vpc/vpc-01a34b0fe9f1e44ec",
+			"cidr_block": "172.31.0.0/16",
+			"cidr_block_associations": [
+				{
+					"association_id": "vpc-cidr-assoc-0310dded97924846e",
+					"cidr_block":     "172.31.0.0/16",
+					"state":          "associated",
+				},
+			],
+			"default":                              true,
+			"dhcp_options_id":                      "dopt-0b979ab548e23eec5",
+			"enable_dns_hostnames":                 true,
+			"enable_dns_support":                   true,
+			"enable_network_address_usage_metrics": false,
+			"filter":              null,
+			"id":                  "vpc-01a34b0fe9f1e44ec",
+			"instance_tenancy":    "default",
+			"ipv6_association_id": "",
+			"ipv6_cidr_block":     "",
+			"main_route_table_id": "rtb-0df4c1c28a888888e",
+			"owner_id":            "035945648876",
+			"state":               null,
+			"tags":                {},
+			"timeouts":            null,
+		},
+	},
+	"module.apache-Guy.template_file.user_data": {
+		"address":        "module.apache-Guy.template_file.user_data",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "module.apache-Guy",
+		"name":           "user_data",
+		"provider_name":  "registry.terraform.io/hashicorp/template",
+		"tainted":        false,
+		"type":           "template_file",
+		"values": {
+			"filename": null,
+			"id":       "708ff514b0fc9e595f76c1f18d5e76cee411a80b4f6b9b7f648971c142dd0b89",
+			"rendered": "#cloud-config\npackages:\n  - httpd\nruncmd:\n  - systemctl start httpd\n  - sudo systemctl enable httpd",
+			"template": "#cloud-config\npackages:\n  - httpd\nruncmd:\n  - systemctl start httpd\n  - sudo systemctl enable httpd",
+			"vars":     null,
+		},
+	},
+}
